@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Puzzle — Gráfica popular</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section id="menu" class="screen menu-screen" aria-label="Elegir dificultad">
+      <div class="menu-card">
+        <div class="puzzle-icon" aria-hidden="true">🧩</div>
+        <h1>Puzzle</h1>
+        <p>Elige el nivel de dificultad</p>
+        <div class="difficulty-buttons">
+          <button class="difficulty active" id="startEasy">Fácil</button>
+          <button class="difficulty" disabled title="Próximamente">Medio</button>
+          <button class="difficulty" disabled title="Próximamente">Difícil</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="game" class="screen game-screen hidden" aria-label="Puzzle fácil">
+      <header class="topbar">
+        <button id="backBtn" class="blue-btn back-btn" type="button"><span aria-hidden="true">◀</span> Volver</button>
+        <div class="heading">
+          <h1>Puzzle</h1>
+          <p>Arrastra las piezas para completar el rótulo</p>
+        </div>
+        <div class="controls" aria-label="Controles">
+          <span id="timer" class="timer">0:00</span>
+          <button id="pauseBtn" type="button" aria-label="Pausar">Ⅱ</button>
+          <button id="resetBtn" type="button" aria-label="Reiniciar">↻</button>
+        </div>
+      </header>
+
+      <div class="workspace" id="workspace">
+        <aside class="preview-panel">
+          <h2>Vista previa</h2>
+          <img src="assets/puzzle-facil.jpg" alt="Vista previa del rótulo completo" draggable="false" />
+        </aside>
+
+        <div class="board-wrap">
+          <div id="board" class="board" aria-label="Zona para armar el rompecabezas">
+            <div class="board-hint">Arma aquí el puzzle</div>
+          </div>
+        </div>
+
+        <aside id="tray" class="tray" aria-label="Piezas del rompecabezas"></aside>
+      </div>
+
+      <div id="pauseOverlay" class="overlay hidden" role="dialog" aria-modal="true">
+        <div class="modal">
+          <h2>Juego pausado</h2>
+          <p>El cronómetro está detenido.</p>
+          <button id="resumeBtn" class="blue-btn" type="button">Continuar</button>
+        </div>
+      </div>
+
+      <div id="winOverlay" class="overlay hidden" role="dialog" aria-modal="true">
+        <div class="modal win-modal">
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <h2>¡Puzzle completado!</h2>
+          <p>Tiempo: <strong id="finalTime">0:00</strong></p>
+          <div class="modal-actions">
+            <button id="playAgainBtn" class="blue-btn" type="button">Repetir</button>
+            <button id="finishBtn" class="secondary-btn" type="button">Volver</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
